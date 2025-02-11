@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SYN QUOTE FINAL</title>
+    <script src="https://synhf--jesus.sandbox.my.site.com/lightning/lightning.out.js"></script>
+  </head>
+
+  <body>
+    <h1>VODAFONE</h1>
+    <div id="container"></div>
+    <script>
+      const appName = "c:stcExternalApprovalAuraContainer";
+      const componentName = "c:stcExternalApprovalContainer";
+      const lightningEndpoint = "https://syn--vlocrenan.sandbox.my.site.com";
+      const targetElement = document.querySelector("#container");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if(urlParams.has('qId') && urlParams.has('action')) {
+        const uuid = urlParams.get('qId');
+        const action = urlParams.get('action');
+        const componentAttributes = {
+          "uuid" : uuid,
+          "action" : action
+        };
+        
+        $Lightning.use(appName, function () {
+          $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function (cmp) {
+              console.log("lwc has been initiated!");
+            },
+            lightningEndpoint
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
